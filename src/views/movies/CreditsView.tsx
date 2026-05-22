@@ -1,8 +1,8 @@
-import { ImageGrid } from '@/components';
-import { MOVIE_ENDPOINT } from '@/core/constants';
-import type { CreditsResponse } from '@/core/types';
-import { useTmdb } from '@/hooks';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { ImageGrid } from "@/components";
+import { MOVIE_ENDPOINT } from "@/core/constants";
+import type { CreditsResponse } from "@/core/types";
+import { useTmdb } from "@/hooks";
 
 export const CreditsView = () => {
   const { id } = useParams();
@@ -21,8 +21,8 @@ export const CreditsView = () => {
 
   return (
     <section className="px-2">
-      <h2 className="text-2xl font-bold mb-6">Credits</h2>
-      {data.cast.length ? <ImageGrid results={gridData} /> : <p className="text-gray-400 text-center">No credits available.</p>}
+      <h2 className="mb-6 font-bold text-2xl">Credits</h2>
+      {data.cast.length ? <ImageGrid results={gridData} /> : <p className="text-center text-gray-400">No credits available.</p>}
     </section>
   );
 };
