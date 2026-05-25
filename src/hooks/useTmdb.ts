@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_KEY } from "@/core/constants";
 
-export function useTmdb<T>(url: string, params: Record<string, any>, deps: any[]) {
+export function useTmdb<T>(url: string, params: Record<string, any>, _deps: any[]) {
   const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function useTmdb<T>(url: string, params: Record<string, any>, deps: any[]
     fetchData();
 
     return () => controller.abort();
-  }, []);
+  }, [url, params]);
 
   return { data };
 }
